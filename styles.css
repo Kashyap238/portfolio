@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+}
+
+.nav-link {
+    @apply text-gray-300 hover:text-cyan-400 transition-colors duration-300;
+}
+
+.mobile-link {
+    @apply block px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-gray-700 transition-all duration-300;
+}
+
+.btn-primary {
+    @apply px-8 py-3 bg-cyan-500 text-white rounded-lg font-semibold hover:bg-cyan-600 hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 inline-block;
+}
+
+.btn-secondary {
+    @apply px-8 py-3 bg-transparent border-2 border-cyan-500 text-cyan-400 rounded-lg font-semibold hover:bg-cyan-500 hover:text-white hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 inline-block;
+}
+
+.social-icon {
+    @apply text-cyan-400 hover:text-cyan-300 hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.7)];
+}
+
+.social-icon-small {
+    @apply text-cyan-400 hover:text-cyan-300 hover:scale-110 transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)];
+}
+
+.section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-12 text-cyan-400;
+}
+
+.project-card {
+    @apply bg-gray-900 p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-2;
+}
+
+.github-link {
+    @apply inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300;
+}
+
+.skill-card {
+    @apply bg-gray-900 p-6 rounded-xl border border-cyan-500/30 text-center hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 hover:scale-105 transition-all duration-300;
+}
+
+.form-input {
+    @apply w-full px-4 py-3 bg-gray-900 border border-cyan-500/30 rounded-lg text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/50 transition-all duration-300;
+}
+
+.footer-link {
+    @apply text-gray-400 hover:text-cyan-400 transition-colors duration-300;
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 1s ease-out 0.6s both;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeIn 1s ease-out 0.9s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cube-container {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 20s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(34, 211, 238, 0.5);
+    background: rgba(34, 211, 238, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.front  { transform: rotateY(0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@media (max-width: 768px) {
+    .cube-container {
+        width: 120px;
+        height: 120px;
+        right: 5%;
+    }
+    
+    .cube-face {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .front, .back, .right, .left, .top, .bottom {
+        transform: rotateY(0deg) translateZ(60px);
+    }
+    
+    .back   { transform: rotateY(180deg) translateZ(60px); }
+    .right  { transform: rotateY(90deg) translateZ(60px); }
+    .left   { transform: rotateY(-90deg) translateZ(60px); }
+    .top    { transform: rotateX(90deg) translateZ(60px); }
+    .bottom { transform: rotateX(-90deg) translateZ(60px); }
+}
+
+.profile-photo {
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-photo::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0B1222;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.profile-photo img {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.8), 0 0 60px rgba(34, 211, 238, 0.4);
+    border: 4px solid #06b6d4;
+    object-fit: cover;
+    object-position: center;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.experience-card {
+    @apply bg-gray-900 p-8 rounded-xl border border-cyan-500/30 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/20 transition-all duration-300;
+}
+
+.tech-badge {
+    @apply px-3 py-1 bg-cyan-500/20 text-cyan-400 rounded-full text-sm border border-cyan-500/30 hover:bg-cyan-500/30 hover:border-cyan-500 transition-all duration-300;
+}
