@@ -2,153 +2,260 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SOC Analyst & Cyber Security Enthusiast | Linux, SIEM, Cloud Security" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SOC Analyst (Level 1) Portfolio | Kashyap Shah"/>
   <title>Kashyap Shah | SOC Analyst</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bgdark: "#0f172a",
+            bgsoft: "#1e293b",
+            cyber: "#22d3ee"
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
-<body class="bg-gray-900 text-white overflow-x-hidden">
+<body class="bg-bgdark text-slate-200 relative overflow-x-hidden">
+
+<!-- ================= GLOBAL 3D BACKGROUND ================= -->
+<canvas id="threeBg" class="fixed inset-0 -z-20"></canvas>
+<div class="fixed inset-0 -z-10 bg-gradient-to-b from-bgdark/80 via-bgdark/70 to-bgdark/90"></div>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="fixed top-0 w-full z-50 bg-gray-900/90 backdrop-blur border-b border-cyan-500/20">
-  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <span class="text-xl font-bold text-cyan-400">Kashyap Shah</span>
+<header class="fixed top-0 w-full z-50 bg-bgdark/90 backdrop-blur border-b border-cyber/20">
+  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <span class="text-xl font-bold text-cyber">Kashyap Shah</span>
 
-    <div class="hidden md:flex space-x-8">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#experience" class="nav-link">Experience</a>
-      <a href="#certifications" class="nav-link">Certifications</a>
+    <div class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#home" class="hover:text-cyber transition">Home</a>
+      <a href="#about" class="hover:text-cyber transition">About</a>
+      <a href="#skills" class="hover:text-cyber transition">Skills</a>
+      <a href="#projects" class="hover:text-cyber transition">Projects</a>
+      <a href="#experience" class="hover:text-cyber transition">Experience</a>
+      <a href="#certifications" class="hover:text-cyber transition">Certifications</a>
     </div>
-
-    <button id="menuBtn" class="md:hidden text-cyan-400">
-      ☰
-    </button>
-  </div>
-
-  <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-cyan-500/20">
-    <a href="#home" class="mobile-link">Home</a>
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#projects" class="mobile-link">Projects</a>
-    <a href="#skills" class="mobile-link">Skills</a>
-    <a href="#experience" class="mobile-link">Experience</a>
-    <a href="#certifications" class="mobile-link">Certifications</a>
-  </div>
-</nav>
+  </nav>
+</header>
 
 <!-- ================= HERO ================= -->
-<section id="home" class="min-h-screen flex items-center justify-center relative pt-16">
-  <canvas id="bgCanvas" class="absolute inset-0"></canvas>
+<section id="home" class="min-h-screen flex items-center justify-center text-center px-6 pt-20">
+  <div class="max-w-4xl">
+    <!-- Profile Image -->
+    <img src="image.png" alt="Kashyap Shah"
+      class="mx-auto mb-6 w-40 h-40 rounded-full border-4 border-cyber shadow-[0_0_40px_rgba(34,211,238,0.6)] hover:scale-105 transition duration-300 object-cover"/>
 
-  <div class="text-center z-10 px-4">
-    <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4">
       Kashyap Shah
     </h1>
-    <h2 class="text-2xl md:text-4xl text-cyan-400 mb-6 animate-fade-in-delay">
+
+    <p class="text-xl md:text-3xl text-cyber mb-6">
       SOC Analyst (Level 1) · Cyber Security Fresher
-    </h2>
+    </p>
 
-    <a href="kashyapshah.pdf" download class="btn-primary">
-      📄 Download Resume
-    </a>
+    <p class="text-slate-400 mb-8">
+      Focused on SOC operations, log monitoring, SIEM analysis, and securing Linux-based systems.
+    </p>
 
-    <div class="flex justify-center gap-6 mt-8">
-      <a href="https://github.com/Kashyap238" target="_blank" class="social-icon">GitHub</a>
-      <a href="https://www.linkedin.com/in/kashyap-shah-836640237" target="_blank" class="social-icon">LinkedIn</a>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="kashyapshah.pdf" download
+        class="px-6 py-3 bg-cyber text-black font-semibold rounded-lg hover:shadow-lg hover:shadow-cyber/40 hover:-translate-y-1 transition">
+        Download Resume
+      </a>
+
+      <a href="https://github.com/Kashyap238" target="_blank"
+        class="px-6 py-3 border border-cyber text-cyber rounded-lg hover:bg-cyber hover:text-black hover:-translate-y-1 transition">
+        GitHub
+      </a>
+
+      <a href="https://www.linkedin.com/in/kashyap-shah-836640237" target="_blank"
+        class="px-6 py-3 border border-cyber text-cyber rounded-lg hover:bg-cyber hover:text-black hover:-translate-y-1 transition">
+        LinkedIn
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-  <h2 class="section-title">About Me</h2>
-  <div class="max-w-4xl mx-auto text-center text-gray-300 leading-relaxed">
-    <p>
-      I am a Cyber Security fresher focused on SOC operations, log analysis,
-      and threat detection. I work with Linux systems, SIEM tools, and secure
-      web applications to identify and mitigate security risks.
-    </p>
+<section id="about" class="py-20 px-6 bg-bgsoft/70 backdrop-blur">
+  <h2 class="text-3xl font-bold text-center text-cyber mb-8">About Me</h2>
+  <p class="max-w-4xl mx-auto text-center text-slate-300 leading-relaxed">
+    Cyber Security fresher seeking a SOC Analyst (Level 1) role with foundational knowledge of
+    Linux systems, log monitoring, web security, and access control. Familiar with alert analysis,
+    authentication mechanisms, vulnerability mitigation, and SIEM concepts.
+  </p>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-20 px-6">
+  <h2 class="text-3xl font-bold text-center text-cyber mb-12">Skills</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+    <div class="skill">🐧 Linux</div>
+    <div class="skill">🛡️ Wazuh (SIEM)</div>
+    <div class="skill">🌐 Wireshark</div>
+    <div class="skill">📊 Log Analysis</div>
+    <div class="skill">🔐 Web Security</div>
+    <div class="skill">🐍 Python</div>
+    <div class="skill">🐳 Docker</div>
+    <div class="skill">☁️ AWS</div>
   </div>
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<section id="projects" class="section bg-gray-800/50">
-  <h2 class="section-title">Projects</h2>
+<section id="projects" class="py-20 px-6 bg-bgsoft/70 backdrop-blur">
+  <h2 class="text-3xl font-bold text-center text-cyber mb-12">Projects</h2>
 
   <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <div class="project-card">
-      <h3>Cloud Server Lab</h3>
-      <p>Linux-based server lab with monitoring and security hardening.</p>
-      <a href="https://github.com/Kashyap238" target="_blank">View on GitHub</a>
+    <div class="card">
+      <h3 class="text-xl font-semibold text-cyber mb-2">Cloud Server Lab</h3>
+      <p class="text-slate-400 mb-4">
+        Linux-based server lab with monitoring and security hardening.
+      </p>
+      <a href="https://github.com/Kashyap238" target="_blank" class="link">GitHub →</a>
     </div>
 
-    <div class="project-card">
-      <h3>File & Content Management</h3>
-      <p>Secure PHP/MySQL system with authentication and access control.</p>
-      <a href="https://github.com/Kashyap238" target="_blank">View on GitHub</a>
+    <div class="card">
+      <h3 class="text-xl font-semibold text-cyber mb-2">File & Content Management</h3>
+      <p class="text-slate-400 mb-4">
+        Secure PHP/MySQL system with authentication and access control.
+      </p>
+      <a href="https://github.com/Kashyap238" target="_blank" class="link">GitHub →</a>
     </div>
 
-    <div class="project-card">
-      <h3>Food Ordering System</h3>
-      <p>Secure web app with payment integration and role-based access.</p>
-      <a href="https://github.com/Kashyap238" target="_blank">View on GitHub</a>
+    <div class="card">
+      <h3 class="text-xl font-semibold text-cyber mb-2">Food Ordering System</h3>
+      <p class="text-slate-400 mb-4">
+        Secure web app with payment integration and role-based access.
+      </p>
+      <a href="https://github.com/Kashyap238" target="_blank" class="link">GitHub →</a>
     </div>
-  </div>
-</section>
-
-<!-- ================= SKILLS ================= -->
-<section id="skills" class="section">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-    <div class="skill-card">Linux</div>
-    <div class="skill-card">Wazuh (SIEM)</div>
-    <div class="skill-card">Wireshark</div>
-    <div class="skill-card">Python</div>
-    <div class="skill-card">Docker</div>
-    <div class="skill-card">AWS</div>
-    <div class="skill-card">Web Security</div>
-    <div class="skill-card">Log Analysis</div>
   </div>
 </section>
 
 <!-- ================= EXPERIENCE ================= -->
-<section id="experience" class="section bg-gray-800/50">
-  <h2 class="section-title">Experience</h2>
+<section id="experience" class="py-20 px-6">
+  <h2 class="text-3xl font-bold text-center text-cyber mb-12">Experience</h2>
 
-  <div class="experience-card max-w-4xl mx-auto">
-    <h3>Web Developer Intern – Arth Consultancy</h3>
-    <p class="text-gray-400 mb-2">Nov 2023 – May 2024</p>
-    <p class="text-gray-300">
-      Worked on Linux servers, secure authentication, access control,
-      and mitigation of common web vulnerabilities.
-    </p>
+  <div class="max-w-4xl mx-auto card">
+    <h3 class="text-xl font-semibold text-cyber">Web Developer Intern – Arth Consultancy</h3>
+    <p class="text-slate-400 mb-4">Nov 2023 – May 2024</p>
+    <ul class="list-disc list-inside text-slate-300 space-y-2">
+      <li>Worked on Linux-based servers and secure configurations</li>
+      <li>Implemented authentication and access control</li>
+      <li>Applied secure coding practices to reduce vulnerabilities</li>
+    </ul>
   </div>
 </section>
 
 <!-- ================= CERTIFICATIONS ================= -->
-<section id="certifications" class="section">
-  <h2 class="section-title">Certifications</h2>
+<section id="certifications" class="py-20 px-6 bg-bgsoft/70 backdrop-blur">
+  <h2 class="text-3xl font-bold text-center text-cyber mb-12">Certifications</h2>
 
-  <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-    <div class="skill-card">Data Science Using Python – NPTEL</div>
-    <div class="skill-card">PHP – SoloLearn</div>
-    <div class="skill-card">Python – SoloLearn</div>
+  <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div class="card text-center">Data Science Using Python — NPTEL</div>
+    <div class="card text-center">PHP — SoloLearn</div>
+    <div class="card text-center">Python — SoloLearn</div>
   </div>
 </section>
 
-<footer class="py-6 text-center text-gray-400 border-t border-cyan-500/20">
-  © Kashyap Shah
+<!-- ================= FOOTER ================= -->
+<footer class="py-6 text-center text-slate-400 border-t border-cyber/20">
+  © Kashyap Shah · All Rights Reserved
 </footer>
 
-<script src="script.js"></script>
+<!-- ================= COMPONENT STYLES ================= -->
+<style>
+  .card {
+    background: #020617;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(34,211,238,0.3);
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 0 30px rgba(34,211,238,0.35);
+  }
+  .skill {
+    background: #020617;
+    padding: 1.25rem;
+    text-align: center;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(34,211,238,0.3);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .skill:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(34,211,238,0.3);
+  }
+  .link {
+    color: #22d3ee;
+    font-weight: 500;
+  }
+</style>
+
+<!-- ================= THREE.JS BACKGROUND SCRIPT ================= -->
+<script>
+  const canvas = document.getElementById("threeBg");
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 60;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  const particleCount = window.innerWidth < 768 ? 300 : 800;
+  const geometry = new THREE.BufferGeometry();
+  const positions = [];
+
+  for (let i = 0; i < particleCount; i++) {
+    positions.push(
+      (Math.random() - 0.5) * 200,
+      (Math.random() - 0.5) * 200,
+      (Math.random() - 0.5) * 200
+    );
+  }
+
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+
+  const material = new THREE.PointsMaterial({
+    color: 0x22d3ee,
+    size: 0.6,
+    transparent: true,
+    opacity: 0.25
+  });
+
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    particles.rotation.y += 0.0003;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+
 </body>
 </html>
